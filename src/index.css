@@ -2,41 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Indian Saree Boutique Design System - Rich traditional colors with modern aesthetics */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base colors inspired by traditional Indian textiles */
+    --background: 352 40% 98%;
+    --foreground: 15 15% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 15 15% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 15 15% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Primary: Rich royal blue inspired by traditional sarees */
+    --primary: 220 85% 25%;
+    --primary-foreground: 0 0% 98%;
+    --primary-light: 220 75% 45%;
+    --primary-glow: 220 85% 65%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary: Elegant gold inspired by traditional embroidery */
+    --secondary: 45 95% 55%;
+    --secondary-foreground: 15 15% 15%;
+    --secondary-light: 45 90% 70%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Accent: Deep red inspired by traditional bridal sarees */
+    --accent: 0 75% 45%;
+    --accent-foreground: 0 0% 98%;
+    --accent-light: 0 65% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Emerald: Inspired by traditional green sarees */
+    --emerald: 140 75% 35%;
+    --emerald-light: 140 65% 55%;
+    --emerald-foreground: 0 0% 98%;
+
+    /* Muted tones */
+    --muted: 25 20% 94%;
+    --muted-foreground: 15 15% 45%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 25 25% 88%;
+    --input: 25 25% 88%;
+    --ring: 220 85% 25%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Beautiful gradients inspired by Indian sunsets and traditional textiles */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--secondary)) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(25 30% 96%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)) 0%, hsl(var(--accent-light)) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-light)) 100%);
+    --gradient-emerald: linear-gradient(135deg, hsl(var(--emerald)) 0%, hsl(var(--emerald-light)) 100%);
+    
+    /* Elegant shadows with traditional color hints */
+    --shadow-elegant: 0 10px 30px -5px hsl(var(--primary) / 0.15);
+    --shadow-card: 0 4px 20px -2px hsl(var(--primary) / 0.1);
+    --shadow-glow: 0 0 30px hsl(var(--secondary) / 0.3);
+
+    /* Smooth animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     --sidebar-background: 0 0% 98%;
 
