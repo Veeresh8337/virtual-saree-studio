@@ -1,56 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Heart, Eye, ShoppingBag } from "lucide-react";
 import { useState } from "react";
-
-const featuredSarees = [
-  {
-    id: 1,
-    name: "Royal Blue Banarasi Silk",
-    price: "₹15,999",
-    originalPrice: "₹19,999",
-    image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-    rating: 4.8,
-    reviews: 124,
-    discount: "20% OFF",
-    tag: "Best Seller"
-  },
-  {
-    id: 2,
-    name: "Emerald Green Kanjivaram",
-    price: "₹22,999",
-    originalPrice: "₹27,999",
-    image: "https://images.unsplash.com/photo-1583391733956-6c78276477e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-    rating: 4.9,
-    reviews: 89,
-    discount: "18% OFF",
-    tag: "Premium"
-  },
-  {
-    id: 3,
-    name: "Crimson Red Wedding Saree",
-    price: "₹35,999",
-    originalPrice: "₹42,999",
-    image: "https://images.unsplash.com/photo-1595777216528-85aa37943c2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-    rating: 5.0,
-    reviews: 67,
-    discount: "16% OFF",
-    tag: "Bridal Special"
-  },
-  {
-    id: 4,
-    name: "Lavender Georgette Designer",
-    price: "₹8,999",
-    originalPrice: "₹11,999",
-    image: "https://images.unsplash.com/photo-1562788869-4ed32648eb72?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80",
-    rating: 4.7,
-    reviews: 156,
-    discount: "25% OFF",
-    tag: "Trending"
-  }
-];
+import { useNavigate } from "react-router-dom";
+import { mockSarees } from "@/data/mockSarees";
 
 export const FeaturedProducts = () => {
-  const [hoveredProduct, setHoveredProduct] = useState<number | null>(null);
+  const [hoveredProduct, setHoveredProduct] = useState<string | null>(null);
+  const navigate = useNavigate();
+  const featuredSarees = mockSarees.slice(0, 4);
 
   return (
     <section className="py-16 bg-muted/30">
@@ -89,7 +46,7 @@ export const FeaturedProducts = () => {
               {/* Product Image */}
               <div className="aspect-[3/4] overflow-hidden">
                 <img 
-                  src={saree.image} 
+                  src={saree.images[0]} 
                   alt={saree.name}
                   className="w-full h-full object-cover group-hover:scale-110 transition-smooth duration-500"
                 />
@@ -102,10 +59,10 @@ export const FeaturedProducts = () => {
                     <Button variant="secondary" size="icon" className="rounded-full">
                       <Heart className="w-4 h-4" />
                     </Button>
-                    <Button variant="hero" size="icon" className="rounded-full">
+                    <Button variant="hero" size="icon" className="rounded-full" onClick={() => navigate(`/product/${saree.id}`)}>
                       <Eye className="w-4 h-4" />
                     </Button>
-                    <Button variant="accent" size="icon" className="rounded-full">
+                    <Button variant="accent" size="icon" className="rounded-full" onClick={() => navigate(`/product/${saree.id}`)}>
                       <ShoppingBag className="w-4 h-4" />
                     </Button>
                   </div>
@@ -135,16 +92,16 @@ export const FeaturedProducts = () => {
                 {/* Price */}
                 <div className="flex items-center gap-2 mb-4">
                   <span className="text-lg font-bold text-foreground">
-                    {saree.price}
+                    ₹{saree.price.toLocaleString()}
                   </span>
                   <span className="text-sm text-muted-foreground line-through">
-                    {saree.originalPrice}
+                    ₹{saree.originalPrice.toLocaleString()}
                   </span>
                 </div>
 
                 {/* Add to Cart Button */}
-                <Button className="w-full" variant="boutique">
-                  Add to Cart
+                <Button className="w-full" variant="boutique" onClick={() => navigate(`/product/${saree.id}`)}>
+                  View Details
                 </Button>
               </div>
             </div>
